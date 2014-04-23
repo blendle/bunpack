@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'tmpdir'
+require 'pathname'
+
+if ARGV.size != 1
+  STDERR.puts "Usage: #{File.basename $0} ARCHIVE"
+  exit 64
+end
+
+ORIG_ARCHIVE = ARGV.join ' '
+TMP_DIR = Pathname Dir.mktmpdir
+
+begin
+  archive = TMP_DIR + File.basename(ORIG_ARCHIVE)
+  FileUtils.cp ORIG_ARCHIVE, archive
+
+  if archive.extname == '.zip' && `unzip -l #{archive}` =~ /__MACOSX/
+    system "zip --delete '#{archive}' '__MACOSX/*'"
+  end
+
+  system "aunpack '#{archive}'"
+ensure
+  FileUtils.rm_rf TMP_DIR
+end
+
