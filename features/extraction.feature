@@ -9,7 +9,7 @@ Feature: Extraction
     Then the file "archive/__MACOSX" should not exist
     And a file named "archive/hello_world" should exist
 
-  Scenario: Extracting a tar archive without __MACOSX directory
+  Scenario: Extracting a tgz archive without __MACOSX directory
     Given the following base64 encoded tgz archive:
       """
       H4sIACO4VlMAA+3RTQ6CMBCGYY7SGzi0HTyOIQoB0wipf9e3AXSlJiawIL7P5ttM2mm/Mu6b9lZtsgWJyFbVDFmMKdaPOTG5dVbVebFqJHe5k8zokks9Xc+XMqZV+qpvj6fPc2msrr+cM73jlStRTv03VQjd7t7FcJj9jvQfhfe/9K9OXWZk9k3e+PP+AQAAAAAAAAAAAAAAAKzXAxSLKCkAKAAA
