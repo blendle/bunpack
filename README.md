@@ -1,7 +1,7 @@
 bunpack [![Gem Version](https://badge.fury.io/rb/bunpack.svg)](http://badge.fury.io/rb/bunpack) [![Build Status](https://travis-ci.org/blendle/bunpack.svg?branch=master)](https://travis-ci.org/blendle/bunpack) 
 =======
 
-Removes __MACOSX folder from zip archives.
+Drop-in replacement for aunpack that removes the __MACOSX directory from zip archives.
 
 ## Usage
 
