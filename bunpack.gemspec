@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name        = 'bunpack'
-  spec.version     = '1.0.0'
+  spec.version     = '1.0.1'
   spec.licenses    = ['MIT']
   spec.authors     = ["Pepijn Looije"]
   spec.email       = ["pepijn@blendle.nl"]
