@@ -15,11 +15,15 @@ begin
   archive = TMP_DIR + File.basename(ORIG_ARCHIVE)
   FileUtils.cp ORIG_ARCHIVE, archive
 
-  if archive.extname == '.zip' && `unzip -l #{archive}` =~ /__MACOSX/
-    system "zip --delete '#{archive}' '__MACOSX/*'"
+  if archive.extname == '.zip'
+    archive_contents = `unzip -l "#{archive}"`
+
+    if archive_contents.include? '__MACOSX'
+      system %{zip --delete "#{archive}" "__MACOSX/*"}
+    end
   end
 
-  system "aunpack '#{archive}'"
+  system %{aunpack "#{archive}"}
 ensure
   FileUtils.rm_rf TMP_DIR
 end
