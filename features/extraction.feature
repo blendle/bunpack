@@ -27,3 +27,6 @@ Feature: Extraction
     Then the file "archive/__MACOSX" should not exist
     And a file named "archive/hello_world" should exist
 
+  Scenario: Extracting an epub archive
+    When I successfully run `bunpack ../../features/fixtures/test.epub`
+    Then a file named "test/ops/package.opf" should exist
