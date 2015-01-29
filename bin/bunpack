@@ -15,7 +15,7 @@ begin
   archive = TMP_DIR + File.basename(ORIG_ARCHIVE)
   FileUtils.cp ORIG_ARCHIVE, archive
 
-  if archive.extname == '.zip'
+  if archive.extname == '.zip' || archive.extname == '.epub'
     archive_contents = `unzip -l "#{archive}"`
 
     if archive_contents.include? '__MACOSX'
