@@ -23,7 +23,8 @@ begin
     end
   end
 
-  system %{aunpack "#{archive}"}
+  options = '--format=zip' if archive.extname == '.epub'
+  system %{aunpack #{options} "#{archive}"}
 ensure
   FileUtils.rm_rf TMP_DIR
 end
